@@ -1,10 +1,28 @@
 import {
   PageObjectResponse,
   PartialPageObjectResponse,
-  SelectPropertyResponse,
 } from "@notionhq/client/build/src/api-endpoints";
 import React from "react";
 import Image from "next/image";
+
+type StringRequest = string;
+type SelectColor =
+  | "default"
+  | "gray"
+  | "brown"
+  | "orange"
+  | "yellow"
+  | "green"
+  | "blue"
+  | "purple"
+  | "pink"
+  | "red";
+
+type SelectPropertyResponse = {
+  id: StringRequest;
+  name: StringRequest;
+  color: SelectColor;
+};
 
 interface Props {
   data: PageObjectResponse | PartialPageObjectResponse;
