@@ -40,8 +40,8 @@ export default function ProjectItem({ data }: Props) {
     }
   }
   if ("properties" in data) {
-    if ("title" in data.properties.이름) {
-      title = data.properties.이름.title[0].plain_text;
+    if ("title" in data.properties.s) {
+      title = data.properties.s.title[0].plain_text;
     }
     if ("rich_text" in data.properties["description"]) {
       description =
