@@ -24,7 +24,6 @@ export const getContentNames = async () => {
   //     }
   //   }
   // });
-  // console.log(contentNames);
 
   return response;
 };

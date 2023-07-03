@@ -41,7 +41,7 @@ export default function ProjectItem({ data }: Props) {
   }
   if ("properties" in data) {
     if ("title" in data.properties.s) {
-      title = data.properties.s.title[0].plain_text;
+      title = data.properties.s.title[0]?.plain_text ?? "제목을 입력해주세요";
     }
     if ("rich_text" in data.properties["description"]) {
       description =
@@ -54,18 +54,20 @@ export default function ProjectItem({ data }: Props) {
 
   return (
     <article className="project-card">
-      <Image
-        className="w-full rounded-t-xl"
-        src={imgSrc}
-        alt={`cover-${title}`}
-        // placeholder="blur"
-        // blurDataURL={
-        //   "https://avatars.githubusercontent.com/u/44238060?s=48&v=4"
-        // }
-        width={200}
-        height={275}
-        quality={100}
-      />
+      {imgSrc && (
+        <Image
+          className="w-full rounded-t-xl"
+          src={imgSrc}
+          alt={`cover-${title}`}
+          placeholder="blur"
+          blurDataURL={
+            "https://avatars.githubusercontent.com/u/44238060?s=48&v=4"
+          }
+          width={200}
+          height={275}
+          quality={100}
+        />
+      )}
       <div className="flex flex-col p-4">
         <h2 className="text-2xl font-bold">{title}</h2>
         {description && <h3 className="mt-4 text-xl">{description}</h3>}
