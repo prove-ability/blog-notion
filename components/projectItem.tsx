@@ -52,8 +52,14 @@ export default function ProjectItem({ data }: Props) {
     }
   }
 
+  const handlePageClick = async () => {
+    window.open((data as PageObjectResponse).url);
+  };
   return (
-    <article className="project-card">
+    <article
+      className="max-w-md min-w-min project-card"
+      onClick={handlePageClick}
+    >
       {imgSrc && (
         <Image
           className="w-full rounded-t-xl"
