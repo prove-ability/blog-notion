@@ -20,11 +20,13 @@ export default function contents({
             fugit natus?
           </p>
         </header>
-        <h1>모든 컨텐츠: {contents.results.length}</h1>
         <section className="flex flex-wrap gap-10 p-4">
-          {contents.results.map((content) => (
-            <ProjectItem key={content.id} data={content} />
-          ))}
+          {contents.results.map(
+            (content) =>
+              (content as any).public_url && (
+                <ProjectItem key={content.id} data={content} />
+              )
+          )}
         </section>
       </Layout>
     </>
