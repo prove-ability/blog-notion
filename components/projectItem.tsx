@@ -4,6 +4,7 @@ import {
 } from "@notionhq/client/build/src/api-endpoints";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 type StringRequest = string;
 type SelectColor =
@@ -52,44 +53,47 @@ export default function ProjectItem({ data }: Props) {
     }
   }
 
-  const handlePageClick = async () => {
-    window.open((data as PageObjectResponse).url);
-  };
   return (
-    <article
-      className="max-w-md min-w-min project-card"
-      onClick={handlePageClick}
+    <Link
+      href={{
+        pathname: "/contents/detail",
+        query: {
+          url: (data as any).public_url,
+        },
+      }}
     >
-      {imgSrc && (
-        <Image
-          className="w-full rounded-t-xl"
-          src={imgSrc}
-          alt={`cover-${title}`}
-          placeholder="blur"
-          blurDataURL={
-            "https://avatars.githubusercontent.com/u/44238060?s=48&v=4"
-          }
-          width={200}
-          height={275}
-          quality={100}
-        />
-      )}
-      <div className="flex flex-col p-4">
-        <h2 className="text-2xl font-bold">{title}</h2>
-        {description && <h3 className="mt-4 text-xl">{description}</h3>}
-        {tags.length > 0 && (
-          <div className="flex items-start mt-2">
-            {tags.map((tag) => (
-              <h4
-                key={tag.id}
-                className="px-2 py-1 mr-2 rounded-md bg-sky-200 dark:bg-sky-700"
-              >
-                {tag.name}
-              </h4>
-            ))}
-          </div>
+      <article className="max-w-md min-w-min project-card">
+        {imgSrc && (
+          <Image
+            className="w-full rounded-t-xl"
+            src={imgSrc}
+            alt={`cover-${title}`}
+            placeholder="blur"
+            blurDataURL={
+              "https://avatars.githubusercontent.com/u/44238060?s=48&v=4"
+            }
+            width={200}
+            height={275}
+            quality={100}
+          />
         )}
-      </div>
-    </article>
+        <div className="flex flex-col p-4">
+          <h2 className="text-2xl font-bold">{title}</h2>
+          {description && <h3 className="mt-4 text-xl">{description}</h3>}
+          {tags.length > 0 && (
+            <div className="flex items-start mt-2">
+              {tags.map((tag) => (
+                <h4
+                  key={tag.id}
+                  className="px-2 py-1 mr-2 rounded-md bg-sky-200 dark:bg-sky-700"
+                >
+                  {tag.name}
+                </h4>
+              ))}
+            </div>
+          )}
+        </div>
+      </article>
+    </Link>
   );
 }
