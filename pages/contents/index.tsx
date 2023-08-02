@@ -12,12 +12,10 @@ export default function contents({
       <Layout>
         <header>
           <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">
-            Product Collection
+            Contents
           </h2>
           <p className="max-w-md mt-4 text-gray-500">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-            praesentium cumque iure dicta incidunt est ipsam, officia dolor
-            fugit natus?
+            개발 관련해서 작성한 글들을 모아놓은 공간입니다.
           </p>
         </header>
         <section className="flex flex-wrap gap-10 p-4">
