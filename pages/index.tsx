@@ -15,8 +15,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <section className="flex min-h-screen flex-col items-center justify-center text-gray-600 body-font">
-          <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+        <section className="flex flex-col items-center justify-center min-h-screen text-gray-600 body-font">
+          <div className="container flex flex-col items-center px-5 py-24 mx-auto md:flex-row">
             <Hero />
           </div>
         </section>
