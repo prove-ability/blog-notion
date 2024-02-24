@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Animation from "./animation";
 
 export default function Hero() {
   return (
@@ -42,9 +41,9 @@ export default function Hero() {
           </Link>
         </div>
       </div>
-      <div className="w-5/6 lg:max-w-lg lg:w-full md:w-1/2">
+      {/* <div className="w-5/6 lg:max-w-lg lg:w-full md:w-1/2">
         <Animation />
-      </div>
+      </div> */}
     </>
   );
 }
