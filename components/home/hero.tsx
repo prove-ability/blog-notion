@@ -1,12 +1,11 @@
 import Link from "next/link";
-import React from "react";
 import Animation from "./animation";
 
 export default function Hero() {
   return (
     <>
-      <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-        <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+      <div className="flex flex-col items-center mb-16 text-center lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 md:items-start md:text-left md:mb-0">
+        <h1 className="mb-4 text-3xl font-medium text-gray-900 title-font sm:text-4xl">
           안녕하세요 Prove 입니다!
           <br className="hidden lg:inline-block" />
           오늘도 코딩..!
@@ -43,7 +42,7 @@ export default function Hero() {
           </Link>
         </div>
       </div>
-      <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+      <div className="w-5/6 lg:max-w-lg lg:w-full md:w-1/2">
         <Animation />
       </div>
     </>
