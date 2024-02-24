@@ -5,6 +5,7 @@ import {
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import dayjs from "dayjs";
 
 type StringRequest = string;
 type SelectColor =
@@ -34,6 +35,13 @@ export default function ProjectItem({ data }: Props) {
   let description = "";
   let imgSrc = "";
   let tags: SelectPropertyResponse[] = [];
+
+  const createdTime =
+    "created_time" in data ? dayjs(data.created_time).format("YYYY-MM-DD") : "";
+  const lastEditedTime =
+    "last_edited_time" in data
+      ? dayjs(data.last_edited_time).format("YYYY-MM-DD")
+      : "";
 
   if ("cover" in data) {
     if (data.cover && "external" in data.cover) {
@@ -80,6 +88,14 @@ export default function ProjectItem({ data }: Props) {
         <div className="flex flex-col p-4">
           <h2 className="text-2xl font-bold">{title}</h2>
           {description && <h3 className="mt-4 text-xl">{description}</h3>}
+          <h4 className="ml-auto">
+            <span className="text-gray-500">작성일: </span>
+            {createdTime}
+          </h4>
+          <h4 className="ml-auto">
+            <span className="text-gray-500">최근 수정일: </span>
+            {lastEditedTime}
+          </h4>
           {tags.length > 0 && (
             <div className="flex items-start mt-2">
               {tags.map((tag) => (
